@@ -1,26 +1,27 @@
 //Dependencies
 const inquirer = require("inquirer");
-const inquirer = require("inquirer");
-require("console.table");
-// const sql = require("./sql");
+const mysql = require("mysql");
+const cTable = require("console.table");
 
-var connection = createConnection({
+const connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
   password: "password",
-  database: "employeesDB"
+  database: "employees_db"
 });
 
 // connect to the mysql server and sql database
 connection.connect(function (err) {
   if (err) throw err;
+  console.log("The SQL is connected!")
+
   // run the start function after the connection is made to prompt the user
-  firstPrompt();
+  start();
 });
 
 // function which prompts the user for what action they should take
-function firstPrompt() {
+function start() {
 
   inquirer
     .prompt({
@@ -47,9 +48,6 @@ function firstPrompt() {
         case "View Employees by Department":
           viewEmployeeByDepartment();
           break;
-        // case "View Employees by Manager":
-        //   viewEmployeeByManager();
-        //   break;
         case "Add Employee":
           addEmployee();
           break;
@@ -62,17 +60,12 @@ function firstPrompt() {
         case "Add Role":
           addRole();
           break;
-        // case "Remove Role":
-        //   removeRole();
-        //   break;
-
-        // case "Update Employee MAnager":
-        //   updateEmployeeManager();
-        //   break;
-
-        case "End":
-          connection.end();
+        case "Exit":
+          console.log("All Done!")
+          // connection.end();
           break;
+        default:
+          console.log("default");
       }
     });
 }
