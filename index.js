@@ -1,14 +1,14 @@
 //Dependencies
 const inquirer = require("inquirer");
 const mysql = require("mysql");
-const cTable = require("console.table");
+const consoleTable = require("console.table");
 
 const connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
   password: "password",
-  database: "employees_db"
+  database: "employees_db",
 });
 
 // connect to the mysql server and sql database
@@ -90,7 +90,7 @@ function viewEmployee() {
     console.table(res);
     console.log("Employees viewed!\n");
 
-    firstPrompt();
+    start();
   });
   // console.log(query.sql);
 }
@@ -153,7 +153,7 @@ function promptDepartment(departmentChoices) {
         console.table("response ", res);
         console.log(res.affectedRows + "Employees are viewed!\n");
 
-        firstPrompt();
+        start();
       });
     });
 }
@@ -226,7 +226,7 @@ function promptInsert(roleChoices) {
           console.table(res);
           console.log(res.insertedRows + "Inserted successfully!\n");
 
-          firstPrompt();
+          start();
         });
       // console.log(query.sql);
     });
@@ -276,7 +276,7 @@ function promptDelete(deleteEmployeeChoices) {
         console.table(res);
         console.log(res.affectedRows + "Deleted!\n");
 
-        firstPrompt();
+        start();
       });
       // console.log(query.sql);
     });
@@ -367,7 +367,7 @@ function promptEmployeeRole(employeeChoices, roleChoices) {
           console.table(res);
           console.log(res.affectedRows + "Updated successfully!");
 
-          firstPrompt();
+          start();
         });
       // console.log(query.sql);
     });
@@ -435,7 +435,7 @@ function promptAddRole(departmentChoices) {
           console.table(res);
           console.log("Role Inserted!");
 
-          firstPrompt();
+          start();
         });
 
     });

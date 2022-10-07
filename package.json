@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Employee Tracker is a CMS interface that makes it easy for non-developers to view and interact with information stored in a databases. This CLI is a solution for managing a company's employees, roles and departments. It is built with node, inquirer, and MySQL.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index"
