@@ -1,4 +1,5 @@
-import { createConnection } from "mysql";
+//Dependencies
+const inquirer = require("inquirer");
 const inquirer = require("inquirer");
 require("console.table");
 // const sql = require("./sql");
